@@ -42,6 +42,7 @@ Given an addition box and a multiplication box:
 
 ### 1.6 Write a statement in a natural language, and offer two different interpretations of that statement.
 Statement: “He saw the woman with binoculars.”
+
 1. Interpretation 1: He used binoculars to see the woman.
 2. Interpretation 2: He saw a woman who had binoculars with her.
 
@@ -54,6 +55,7 @@ Abstraction enhances productivity when it allows users to focus on higher-level 
 
 ### 1.8 Interpretations of “I saw the man in the park with a telescope.”
 Possible interpretations:
+
 1. I used a telescope to see the man in the park.
 2. I saw a man who had a telescope in the park.
 
