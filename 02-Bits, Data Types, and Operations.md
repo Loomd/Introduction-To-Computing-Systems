@@ -203,7 +203,7 @@
 
 ### 2.24
 - Create two 16-bit unsigned integers such that their sum causes an overflow.
-  - 
+  - 65535 (1111111111111111) + 1 (0000000000000001) causes an overflow because the result (65536) cannot be represented with 16 bits.
 ---
 
 ### 2.25
@@ -224,7 +224,7 @@
 
 ### 2.27
 - The LC-3, a 16-bit machine, adds the two 2’s complement numbers 0101010101010101 and 0011100111001111, producing 1000111100100100. Is there a problem here? If yes, what is the problem? If no, why not?
-  - 
+  - Yes, there is an overflow problem. Adding two positive numbers should yield a positive result, but here, the result starts with a 1 in the sign bit, indicating a negative number due to overflow.
 ---
 
 ### 2.28
