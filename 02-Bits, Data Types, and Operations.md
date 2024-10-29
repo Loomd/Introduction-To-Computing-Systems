@@ -47,22 +47,24 @@
 
 ### 2.7
 - Create a table showing the decimal values of all four-bit 2’s complement numbers.
-  - 0000:  0
-  - 0001:  1
-  - 0010:  2
-  - 0011:  3
-  - 0100:  4
-  - 0101:  5
-  - 0110:  6
-  - 0111:  7
-  - 1000: -8
-  - 1001: -7
-  - 1010: -6
-  - 1011: -5
-  - 1100: -4
-  - 1101: -3
-  - 1110: -2
-  - 1111: -1
+  | bin	 | dec|
+  |------|----|
+  | 0000 |  0 |
+  | 0001 |  1 |	   
+  | 0010 |  2 |	   
+  | 0011 |  3 |	   
+  | 0100 |  4 |	   
+  | 0101 |  5 |	   
+  | 0110 |  6 |	   
+  | 0111 |  7 |	   
+  | 1000 | -8 |	   
+  | 1001 | -7 |	   
+  | 1010 | -6 |	   
+  | 1011 | -5 |	   
+  | 1100 | -4 |	   
+  | 1101 | -3 |
+  | 1110 | -2 |
+  | 1111 | -1 |
 ---
 
 ### 2.8
@@ -217,9 +219,9 @@
 	- a. How many bits do you need (the minimum number)?  
 	- b. With this number of bits, what is the largest positive number you can represent? (Please give answer in both decimal and binary.)  
 	- c. With this number of bits, what is the largest unsigned number you can represent? (Please give answer in both decimal and binary.)
-		- (a): 
-		- (b): 
-		- (c):
+		- (a): You need 8 bits at minimum.
+		- (b): Assuming this question is asking in 2's complement, the largest positive number with 8 bits would be 0111 1111 in binary, which is 127 in decimal.
+		- (c): For the largest unsigned number with 8 bits, it would be 1111 1111 in binary, which is 255 in decimal.
 ---
 
 ### 2.27
@@ -296,31 +298,31 @@
 	- c. NOT(NOT(1101))  
 	- d. (0110 OR 0000) AND 1111  
 		- (a): 0111
-		- (b): 
-		- (c): 
-		- (d): 
+		- (b): 0111
+		- (c): 1101
+		- (d): 0110
 ---
 
 ### 2.35
 - In Example 2.11, what are the masks used for?
-   - 
+   -  The bit mask in this example is used to isolate the target machines and flip them to available or busy.
 ---
 
 ### 2.36
-- Refer to Example 2.11 for the following questions:
+- Refer to Example 2.11 (1100 0010) for the following questions:
   - a. What mask value and what operation would one use to indicate that machine 2 is busy?  
-    - **Answer:**
+    - 1100 0000, AND
   - b. What mask value and what operation would one use to indicate that machines 2 and 6 are no longer busy? (Note: This can be done with only one operation.)  
-    - **Answer:**
+    - 1110 0010, OR
   - c. What mask value and what operation would one use to indicate that all machines are busy?  
-    - **Answer:**
+    - 0000 0000, AND
   - d. What mask value and what operation would one use to indicate that all machines are idle?  
-    - **Answer:**
+    - 1111 1111, OR
   - e. Using the operations discussed in this chapter, develop a procedure to isolate the status bit of machine 2 as the sign bit.  
     - Example: if the BUSYNESS pattern is `01011100`, the output should be `10000000`.  
     - In general, if the BUSYNESS pattern is `b7 b6 b5 b4 b3 b2 b1 b0`, the output should be `b2 0 0 0 0 0 0 0`.  
     - **Hint:** What happens when you ADD a bit pattern to itself?  
-    - **Answer:**
+    - Following the example you would add 0111 1100
 ---
 
 ### 2.37
@@ -328,7 +330,9 @@
   - Develop a procedure to determine overflow.  
   - Inputs: `n`, `m`, and `s`.  
   - Output: a bit pattern of all 0s (`0000`) if no overflow occurred, and `1000` if an overflow did occur.  
-  - **Answer:**
+  - overflow_negative = (n3 AND m3)AND(NOT s3)
+  - overflow_positive = (NOT n3 AND NOT m3) AND s3
+  - overflow = overflow_negative OR overflow_positive
 ---
 
 ### 2.38
@@ -336,60 +340,60 @@
   - Develop a procedure for determining overflow.  
   - Inputs: `n`, `m`, and `s`.  
   - Output: a bit pattern of all 0s (`0000`) if no overflow occurred, and `1000` if an overflow did occur.  
-  - **Answer:**
+  - overflow = (n3 AND m3) OR ((n2 AND m2) AND (n1 OR m1))
 ---
 
 ### 2.39
 - Write IEEE floating point representation of the following decimal numbers:
   - a. 3.75  
-    - **Answer:**
+    - 0 10000000 11100000000000000000000
   - b. −55.359375 (−55 23/64)  
-    - **Answer:**
+    - 1 10000100 10111010111000000000000
   - c. 3.1415927  
-    - **Answer:**
+    - 0 10000000 10010010000111111011010
   - d. 64,000  
-    - **Answer:**
+    - 0 10001110 11110100000000000000000
 ---
 
 ### 2.40
 - Write the decimal equivalents for these IEEE floating point numbers:
   - a. `0 10000000 00000000000000000000000`  
-    - **Answer:**
+    -  2.0
   - b. `1 10000011 00010000000000000000000`  
-    - **Answer:**
+    - -17.00
   - c. `0 11111111 00000000000000000000000`  
-    - **Answer:**
+    -  +∞
   - d. `1 10000000 10010000000000000000000`  
-    - **Answer:**
+    -  -3.125
 ---
 
 ### 2.41
 - a. What is the largest exponent the IEEE standard allows for a 32-bit floating point number?  
-  - **Answer:**
+  - 254 (binary 11111110).
 - b. What is the smallest exponent the IEEE standard allows for a 32-bit floating point number?  
-  - **Answer:**
+  -   1 (binary 00000001).
 ---
 
 ### 2.42
 - A computer programmer wrote a program that adds two numbers. The programmer ran the program and observed that when 5 is added to 8, the result is the character "m." Explain why this program is behaving erroneously.  
-  - **Answer:**
+  - Programmer is adding ASCII value (character 5 and 8).
 ---
 
 ### 2.43
 - Translate the following ASCII codes into strings of characters by interpreting each group of eight bits as an ASCII character:
   - a. `x48656c6c6f21`  
-    - **Answer:**
+    - Hello!
   - b. `x68454c4c4f21`  
-    - **Answer:**
+    - hELLO!
   - c. `x436f6d70757465727321`  
-    - **Answer:**
+    - Computers!
   - d. `x4c432d32`  
-    - **Answer:**
+    - LC-2
 ---
 
 ### 2.44
 - What operation(s) can be used to convert the binary representation for 3 (i.e., `0000 0011`) into the ASCII representation for 3 (i.e., `0011 0011`)? What about the binary 4 into the ASCII 4? What about any digit?  
-  - **Answer:**
+  - Perform an OR operation with 0011 0000 (hexadecimal 0x30).
 ---
 
 ### 2.45
@@ -409,7 +413,7 @@
   - a. `x10`  
     - 00010000
   - b. `x801`  
-    - **Answer:**
+    - 1000000000010000
   - c. `xF731`  
     - **Answer:**
   - d. `x0F1E2D`  
