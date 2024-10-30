@@ -399,87 +399,87 @@
 ### 2.45
 - Convert the following unsigned binary numbers to hexadecimal:
   - a. `1101 0001 1010 1111`  
-    - **Answer:**
+    - D 1 A F
   - b. `001 1111`  
-    - **Answer:**
+    - 1 F
   - c. `1`  
-    - **Answer:**
+    - 1
   - d. `1110 1101 1011 0010`  
-    - **Answer:**
+    - E D B 2
 ---
 
 ### 2.46
 - Convert the following hexadecimal numbers to binary:
   - a. `x10`  
-    - 00010000
+    - 0000000000010000
   - b. `x801`  
-    - 1000000000010000
+    - 0000100000000001
   - c. `xF731`  
-    - **Answer:**
+    - 1111011100110001
   - d. `x0F1E2D`  
-    - **Answer:**
+    - 000011110001111000101101
   - e. `xBCAD`  
-    - **Answer:**
+    - 1011110010101101
 ---
 
 ### 2.47
 - Convert the following hexadecimal representations of 2’s complement binary numbers to decimal numbers:
   - a. `xF0`  
-    - **Answer:**
+    - 11110000         (-16)
   - b. `x7FF`  
-    - **Answer:**
+    - 011111111111     (2047)
   - c. `x16`  
-    - **Answer:**
+    - 00010110         (22)
   - d. `x8000`  
-    - **Answer:**
+    - 1000000000000000 (-32768)
 ---
 
 ### 2.48
 - Convert the following decimal numbers to hexadecimal representations of 2’s complement numbers:
   - a. 256  
-    - **Answer:**
+    - x0100
   - b. 111  
-    - **Answer:**
+    - x006F
   - c. 123,456,789  
-    - **Answer:**
+    - x075BCD15
   - d. −44  
-    - **Answer:**
+    - x002C
 ---
 
 ### 2.49
 - Perform the following additions. The corresponding 16-bit binary numbers are in 2’s complement notation. Provide your answers in hexadecimal:
   - a. `x025B + x26DE`  
-    - **Answer:**
+    - x2939
   - b. `x7D96 + xF0A0`  
-    - **Answer:**
+    - x6E36
   - c. `xA397 + xA35D`  
-    - **Answer:**
+    - x46F4
   - d. `x7D96 + x7412`  
-    - **Answer:**
+    - xF1A8
   - e. What else can you say about the answers to parts (c) and (d)?  
-    - **Answer:**
+    - Both results fall within the 16-bit range but have opposite signs.
 ---
 
 ### 2.50
 - Perform the following logical operations. Express your answers in hexadecimal notation:
   - a. `x5478 AND xFDEA`  
-    - **Answer:**
+    - x5448
   - b. `xABCD OR x1234`  
-    - **Answer:**
+    - xBBFD
   - c. `NOT((NOT(xDEFA)) AND (NOT(xFFFF)))`  
-    - **Answer:**
+    - xDEFA
   - d. `x00FF XOR x325C`  
-    - **Answer:**
+    - x32A3
 ---
 
 ### 2.51
 - What is the hexadecimal representation of the following numbers?
   - a. 25,675  
-    - **Answer:**
+    - x644B
   - b. 675.625 (i.e., 675 5/8), in the IEEE 754 floating point standard  
-    - **Answer:**
+    - x4428A400
   - c. The ASCII string: "Hello"  
-    - **Answer:**
+    - x48656c6c6f
 ---
 
 ---
@@ -487,13 +487,13 @@
 ### 2.52
 - Consider two hexadecimal numbers: `x434F4D50` and `x55544552`. What values do they represent for each of the five data types shown?
 
-  |                          | x434F4D50 | x55544552 |
-  |--------------------------|-----------|-----------|
-  | Unsigned binary          |           |           |
-  | 1’s complement           |           |           |
-  | 2’s complement           |           |           |
-  | IEEE 754 floating point  |           |           |
-  | ASCII string             |           |           |
+  |                          |          x434F4D50              |         x55544552              |
+  |--------------------------|---------------------------------|--------------------------------|
+  | Unsigned binary          |01000011010011110100110101010000 |01010101010101000100010101010010|
+  | 1’s complement           |                                 |                                |
+  | 2’s complement           |01000011010011110100110101010000 |01010101010101000100010101010010|
+  | IEEE 754 floating point  |          1573235200             |           1431308034           |
+  | ASCII string             |            COMP                 |               UTER             |
 ---
 
 ### 2.53
@@ -505,61 +505,60 @@
   | A | B | Q1 | Q2 |
   |---|---|----|----|
   | 0 | 0 |  1 |  0 |
-  | 0 | 1 |    |    |
-  | 1 | 0 |    |    |
-  | 1 | 1 |    |    |
+  | 0 | 1 |  1 |  1 |
+  | 1 | 0 |  1 |  1 |
+  | 1 | 1 |  0 |  1 |
 
 - Express \( Q2 \) another way.
+  - A OR B
 
 ---
 
 ### 2.54
 - Fill in the truth table for the equations given. The first line is done as an example.
 
-- Q1 = \text{NOT}(\text{NOT}(X) \text{ OR } (X \text{ AND } Y \text{ AND } Z)) 
-- Q2 = {NOT}((Y { OR } Z) { AND } (X { AND } Y { AND } Z))
+- Q1 = NOT(NOT(X) OR (X AND Y AND Z))
+- Q2 = NOT((Y OR Z) AND (X AND Y AND Z))
 
   | X | Y | Z | Q1 | Q2 |
   |---|---|---|----|----|
   | 0 | 0 | 0 |  0 |  1 |
-  | 0 | 0 | 1 |    |    |
-  | 0 | 1 | 0 |    |    |
-  | 0 | 1 | 1 |    |    |
-  | 1 | 0 | 0 |    |    |
-  | 1 | 0 | 1 |    |    |
-  | 1 | 1 | 0 |    |    |
-  | 1 | 1 | 1 |    |    |
+  | 0 | 0 | 1 |  0 |  1 |
+  | 0 | 1 | 0 |  0 |  1 |
+  | 0 | 1 | 1 |  0 |  1 |
+  | 1 | 0 | 0 |  1 |  1 |
+  | 1 | 0 | 1 |  1 |  1 |
+  | 1 | 1 | 0 |  1 |  1 |
+  | 1 | 1 | 1 |  0 |  0 |
 ---
 
 ### 2.55
 - We have represented numbers in base-2 (binary) and in base-16 (hex). We are now ready for unsigned base-4, which we will call "quad numbers." A quad digit can be 0, 1, 2, or 3.
 
 - **a.** What is the maximum unsigned decimal value that one can represent with 3 quad digits?
-    - 
+    - 3^3 + 3^2 + 3 = 63
 - **b.** What is the maximum unsigned decimal value that one can represent with \( n \) quad digits?  
   *Hint*: Your answer should be a function of \( n \).
-  - 
+  - 4^n − 1
 - **c.** Add the two unsigned quad numbers: `023` and `221`.
-  - 
+  - 320
 - **d.** What is the quad representation of the decimal number `42`?
-  - 
+  - 210
 - **e.** What is the binary representation of the unsigned quad number `123.3`?
-  - 
+  - 0010 1011 11.11
 - **f.** Express the unsigned quad number `123.3` in IEEE floating-point format.
-  - 
+  - x42F60000
 - **g.** Given a black box that takes \( m \) quad digits as input and produces one quad digit for output, what is the maximum number of unique functions this black box can implement?
-  - 
+  - 4^4^m
 ---
 
 ### 2.56
 - Define a new eight-bit floating-point format with the following specifications:
 
 - **1 sign bit**
-  - 
+  - This bit is 0 for positive numbers and 1 for negative numbers.
 - **4 bits of exponent**, using an excess-7 code (i.e., the bias is 7)
-  - 
+  - The exponent is stored by adding 7 to the actual exponent value to allow for both positive and negative exponents. For example, an actual exponent of -3 would be represented by 4 (since -3 + 7 = 4).
 - **3 bits of fraction**
-  - 
-
-- If the bit pattern is `xE5` in this eight-bit floating-point format, what decimal value does it represent?
-  -
+  - These bits represent the fractional part of the number, effectively providing precision within the normalized range.
+---
